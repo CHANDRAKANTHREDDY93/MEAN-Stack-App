@@ -1,0 +1,35 @@
+<div class="topnav">
+  <a class="active" href="#home">Buzz Dispatcher Portal</a>
+  <div class="search-container">
+    <form [formGroup]="searchForm">
+      <input type="text" placeholder="From Date" name="search" formControlName="startValue">
+      <input type="text" placeholder="To Date" name="search" formControlName="endValue">
+      <button class="button" (click)="searchData()">Submit</button>
+    </form>
+  </div>
+ </div>
+<hr />
+<div class="searchContainer">
+<form>
+    <input type="text" placeholder="Search.." name="searchText" value="searchText" class="search" [(ngModel)] = "searchText">
+    <button type="submit" class="searchBtn"><i class="fa fa-search"></i></button>
+</form>
+</div>
+<br />
+<br />
+<div class="menu">
+<ag-grid-angular 
+#agGrid
+style="width: auto; height: 500px; padding: 5px; " 
+class="ag-theme-fresh"
+[enableSorting]="true"
+[enableFilter]="true"
+[rowData]="rowData | filter: searchText" 
+[columnDefs]="columnDefs"
+rowSelection="multiple"
+[paginationAutoPageSize]="true"
+[pagination]="true"
+>
+</ag-grid-angular>
+
+</div>
