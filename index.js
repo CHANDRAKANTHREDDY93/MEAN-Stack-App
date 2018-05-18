@@ -14,6 +14,7 @@ app.set('views', path.join(__dirname, './'));
 app.set('view engine', 'ejs');
 app.engine('html', require('ejs').renderFile);
 
+//cors to resolve cross browser issues
 app.use(cors());
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
@@ -25,7 +26,7 @@ app.use('/api', route);
 
 //connecting to Angular app
 app.get('*', function(req, res) {
-	res.sendFile(path.join(__dirname + './public/index.html'));
+	res.sendFile(path.join(__dirname + '/public/index.html'));
 });
 
 

@@ -1,17 +1,8 @@
-<div class="topnav">
-  <a class="active" href="#home">Buzz Dispatcher Portal</a>
-  <div class="search-container">
-    <form [formGroup]="searchForm">
-      <input type="text" placeholder="From Date" name="search" formControlName="startValue">
-      <input type="text" placeholder="To Date" name="search" formControlName="endValue">
-      <button class="button" (click)="searchData()">Submit</button>
-    </form>
-  </div>
- </div>
+<app-header (selectedDate)="searchData($event)"></app-header>
 <hr />
 <div class="searchContainer">
 <form>
-    <input type="text" placeholder="Search.." name="searchText" value="searchText" class="search" [(ngModel)] = "searchText">
+    <input type="text" placeholder="Search.." name="searchName" value="searchName" class="search" [(ngModel)] = "searchName">
     <button type="submit" class="searchBtn"><i class="fa fa-search"></i></button>
 </form>
 </div>
@@ -24,7 +15,7 @@ style="width: auto; height: 500px; padding: 5px; "
 class="ag-theme-fresh"
 [enableSorting]="true"
 [enableFilter]="true"
-[rowData]="rowData | filter: searchText" 
+[rowData]="rowData | filter: searchName" 
 [columnDefs]="columnDefs"
 rowSelection="multiple"
 [paginationAutoPageSize]="true"

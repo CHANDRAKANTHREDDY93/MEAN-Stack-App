@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {  CustomerService } from '../customer.service';
 import { GridOptions} from 'ag-grid/main';
-import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SearchPipe } from '../pipes/search.pipe';
 
 @Component({
@@ -11,21 +10,17 @@ import { SearchPipe } from '../pipes/search.pipe';
 })
 export class CustomerdataComponent implements OnInit{
 
-
   customerData: any;
   filteredData: any;
-  searchText: any;
   private gridOptions: GridOptions;
   columnDefs: any=[];
   rowData: any=[];
-  searchForm: FormGroup;
-  startDate: any;
-  endDate: any;
-  constructor(private customerService : CustomerService, private fb: FormBuilder) {
+  searchName: string;
+  constructor(private customerService : CustomerService) {
     this.customerService.getCustomerData().subscribe(data =>{
       this.customerData = data;
-      this.filteredData = this.customerData;
-      this.rowData = this.filteredData;
+     this.filteredData = this.customerData;
+     this.rowData = this.filteredData;
     });
    }
   ngOnInit() {
@@ -144,19 +139,9 @@ export class CustomerdataComponent implements OnInit{
         return { background : '#e3e3e3' }
      }
     }
-    this.searchForm = this.fb.group({
-      startValue: ['', Validators.required],
-      endValue: ['', Validators.required]
-    })
-
   }
-  searchData(){
-    this.rowData = [];
-    this.startDate = this.searchForm.controls['startValue'].value;
-    this.endDate = this.searchForm.controls['endValue'].value;
-    this.filteredData = this.customerData.filter(e => {
-       return (e.DueDate <= this.endDate) && (e.DueDate >= this.startDate);
-    })
-    this.rowData = this.filteredData;
+  searchData(params: any){
+    this.rowData=[];
+    this.rowData = params;
   }
 }

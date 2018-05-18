@@ -1,0 +1,11 @@
+<div class="topnav">
+<a class="active">Buzz Dispatcher Portal</a>
+  <div class="search-container">
+    <form [formGroup]="searchForm">
+      <input type="text" placeholder="From Date" name="search" formControlName="startValue">
+      <input type="text" placeholder="To Date" name="search" formControlName="endValue">
+      <button type="button" class="btn btn-success" (click)="searchCustomerByDate()">Submit</button>
+      <button type="button" class="btn btn-secondary btn-md"><i class="fa fa-plus"></i> Add Customers</button>
+    </form>
+  </div>
+  </div>

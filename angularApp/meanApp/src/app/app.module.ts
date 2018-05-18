@@ -12,6 +12,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { CustomerdataComponent } from './customerdata/customerdata.component';
 import { CustomerService } from './customer.service';
+import { HeaderComponent } from './header/header.component';
 
 //Custom pipes
 import { SearchPipe } from './pipes/search.pipe';
@@ -21,7 +22,8 @@ import { SearchPipe } from './pipes/search.pipe';
   declarations: [
     AppComponent,
     CustomerdataComponent,
-    SearchPipe
+    SearchPipe,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

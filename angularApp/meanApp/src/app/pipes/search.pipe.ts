@@ -6,14 +6,14 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 export class SearchPipe implements PipeTransform {
 
-  transform(rowData: any, searchText: string, searchJob: string): any {
+  transform(rowData: any, searchName: string, searchJob: string): any {
     
     //Check if array is null
     if(!rowData) return [];
    //Check if input is null
-    if(!searchText) return rowData;
+    if(!searchName) return rowData;
      return rowData.filter(function(item) {
-      return item.CustomerName.toLowerCase().includes(searchText.toLowerCase());
+      return item.CustomerName.toLowerCase().includes(searchName.toLowerCase());
      });
     }
   }

@@ -16,7 +16,7 @@ export class CustomerService {
                          //.catch(this.handleError)
   }
   handleError(error: Response){
-    console.log(error);
+   
     return Observable.throw(error);
   }
 }
