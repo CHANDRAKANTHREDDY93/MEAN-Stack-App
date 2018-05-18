@@ -33,63 +33,101 @@ export class CustomerdataComponent implements OnInit{
     this.columnDefs = [
       {
         headerName: "TN (Receiver ID)",
-        field: "TN",
-        width:150,
+        children:[{
+          headerName: "Search",
+          field: "TN",
+          width:150
+        }],
       },
       {
         headerName: "Customer Name",
+        children:[{
+        headerName: "Search",
         field: "CustomerName",
         width:150
+        }],  
       },
       {
         headerName: "Job ID",
-        field: "JobID",
-        width:100
+        children:[{
+          headerName: "Search",
+          field: "JobID",
+          width:100
+        }],
       },
       {
         headerName: "Correlation ID",
-        field: "CorrelationID",
-        width:120
+        children:
+        [{
+          headerName: "Search",
+          field: "CorrelationID",
+          width:120
+        }],
       },
       {
         headerName: "Task Type",
-        field: "TaskType",
-        width:120
+        children:
+        [{
+          headerName: "Search",
+          field: "TaskType",
+          width:120
+        }],
       },
       {
           headerName: "Task Status",
-          field: "TaskStatus",
-          width:150
+          children:[{
+            headerName: "Search",
+            field: "TaskStatus",
+            width:150
+          }],
       },
       {
         headerName: "Due Date",
+        children:[{
+        headerName: "Search",
         field: "DueDate",
         width:120
+        }],
       },
       {
         headerName: "Miss Commit",
+        children:[{
+        headerName: "Search",
         field: "MissCommit",
         width:100
+        }],
       },
       {
         headerName: "State",
+        children:[{
+        headerName: "Search",
         field: "State",
         width:100
+        }],
       },
       {
         headerName: "Primary Contact Num",
+        children: [{
+        headerName: "Search",
         field: "PrimaryContactNum",
         width:150
+        }],
       },
       {
         headerName: "Notification Sent",
+        children:[{
+        headerName: "Search", 
         field: "NotificationSent",
         width:100
+        }],
       },
       {
         headerName: "Return Message",
+        children:[{
+        headerName: "Search",
         field: "ReturnMessage",
         width:100
+        }],
       },
     ];
    this.gridOptions.getRowHeight = function(params){
